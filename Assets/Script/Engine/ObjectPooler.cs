@@ -36,7 +36,14 @@ namespace Engine
             // Instantiate m_poolSize GameObjects
             for (int i = 0; i < m_PoolSize; i++)
             {
-                Generate(prefabs[Random.Range(0, prefabs.Length)]);
+                if (i == 0)
+                {
+                    Generate(prefabs[0]);
+                }
+                else
+                {
+                    Generate(prefabs[Random.Range(0, prefabs.Length)]);
+                }
             }
 
             return m_Available;
