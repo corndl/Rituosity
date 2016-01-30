@@ -85,7 +85,7 @@ ModelImporter:
     13700000: Box002
   materials:
     importMaterials: 1
-    materialName: 0
+    materialName: 1
     materialSearch: 2
   animations:
     legacyGenerateAnimations: 4
@@ -151,6 +151,8 @@ ModelImporter:
       - path: Point001/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:Neck/mixamorig:Head
         weight: 1
       - path: Point001/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:Neck/mixamorig:Head/mixamorig:HeadTop_End
+        weight: 0
+      - path: Point001/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:Neck/mixamorig:Head/mixamorig:HeadTop_End/Cylinder001
         weight: 0
       - path: Point001/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:LeftShoulder
         weight: 1

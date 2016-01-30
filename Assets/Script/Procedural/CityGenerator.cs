@@ -188,6 +188,12 @@ namespace Procedural
             {
                 tile = new Vector2(Random.Range(-m_HalfCitySize, m_HalfCitySize + 1), Random.Range(-m_HalfCitySize, m_HalfCitySize + 1));
                 mob.transform.SetParent(m_Tiles[tile].transform, false);
+                
+                Environment.BlockSpawn spawn = m_Tiles[tile].GetComponent<Environment.BlockSpawn>();
+                if (spawn != null) 
+                {
+                    mob.transform.position += spawn.SpawnPoints[Random.Range(0, spawn.SpawnPoints.Length)];
+                }
             }
         }
         #endregion

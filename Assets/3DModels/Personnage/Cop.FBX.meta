@@ -93,7 +93,7 @@ ModelImporter:
     13700000: Box002
   materials:
     importMaterials: 1
-    materialName: 0
+    materialName: 1
     materialSearch: 2
   animations:
     legacyGenerateAnimations: 4
