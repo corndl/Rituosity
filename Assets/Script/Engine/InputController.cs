@@ -1,17 +1,37 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class InputController : MonoBehaviour {
+namespace Assets.Script.Engine
+{
+    public class InputController : MonoBehaviour {
 
+        #region Properties
 
+        #endregion
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+        #region Event
+
+        #endregion
+
+        #region API
+
+        #endregion
+
+        #region Unity
+        // Use this for initialization
+        void Start()
+        {
+
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+        #endregion
+
+        #region Private
+
+        #endregion
+    }
 }
