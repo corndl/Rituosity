@@ -59,7 +59,7 @@ namespace Engine
             float angle = transform.localEulerAngles.z;
             
             angle = Mathf.Clamp(angle > 180 ? angle - 360 : angle, -m_SpeedRotation,m_SpeedRotation);
-            OffsetDirection(Quaternion.Euler(-angle *Time.deltaTime* Vector3.forward));
+            OffsetDirection(Quaternion.Euler(-m_SpeedRotation * angle * Time.deltaTime* Vector3.forward));
         }
         #endregion
 
@@ -67,7 +67,7 @@ namespace Engine
         [SerializeField]
         private float m_Speed = 10;
         [SerializeField]
-        private float m_SpeedRotation = 0.01f;
+        private float m_SpeedRotation = 10f;
 
         private void updatePosition()
         {
