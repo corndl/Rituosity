@@ -5,6 +5,9 @@ namespace Engine
     public class Motor : MonoBehaviour {
 
         #region Properties
+
+        public bool TangageCorrection = false;
+
         public float Speed
         {
             get
@@ -18,10 +21,25 @@ namespace Engine
                 SpeedChange.Invoke(value);
             }
         }
+
+        public bool IsInternal
+        {
+            get
+            {
+                return m_IsInternal;
+            }
+
+            set
+            {
+                m_IsInternal = value;
+            }
+        }
         #endregion
 
         #region Event
-        [SerializeField]
+        /// <summary>
+        /// Se déclache au changement de vitesse pendant une partie.
+        /// </summary>
         public FloatEvent SpeedChange = new FloatEvent();
         #endregion
 
@@ -43,6 +61,15 @@ namespace Engine
         {
             setDirection(transform.localRotation * offsetRotation);
         }
+
+        /// <summary>
+        /// Switch InternalMode
+        /// </summary>
+        /// <param name="isInternal"></param>
+        public void InternalMode(bool isInternal)
+        {
+            IsInternal = isInternal;
+        }
         #endregion
 
         #region Unity
@@ -53,30 +80,44 @@ namespace Engine
         }
 
         // Update is called once per frame
-        void Update()
+        void LateUpdate()
         {
             updatePosition();
-            float angle = transform.localEulerAngles.z;
-            
-            angle = Mathf.Clamp(angle > 180 ? angle - 360 : angle, -m_SpeedRotation,m_SpeedRotation);
-            OffsetDirection(Quaternion.Euler(-m_SpeedRotation * angle * Time.deltaTime* Vector3.forward));
+
+            if(TangageCorrection)
+                correctTangage();
         }
         #endregion
 
         #region Private
         [SerializeField]
+        private float m_HauteurMax = 3;
+        [SerializeField]
         private float m_Speed = 10;
+        [SerializeField]
+        private float m_SpeedInternal = 2;
         [SerializeField]
         private float m_SpeedRotation = 10f;
 
+        [SerializeField]
+        private bool m_IsInternal = false;
+
+        private void correctTangage()
+        {
+            float angle = transform.localEulerAngles.z;
+
+            angle = Mathf.Clamp(angle > 180 ? angle - 360 : angle, -m_SpeedRotation, m_SpeedRotation);
+            OffsetDirection(Quaternion.Euler(-m_SpeedRotation * angle * Time.deltaTime * Vector3.forward));
+        }
+
         private void updatePosition()
         {
-            transform.position += m_Speed * transform.forward *Time.deltaTime;
+            transform.position += (IsInternal?m_SpeedInternal:m_Speed) * transform.forward *Time.deltaTime;
+            if (transform.position.y > m_HauteurMax) transform.position -= Vector3.up * (transform.position.y - m_HauteurMax);
         }
         private void setDirection(Quaternion rotation)
         {
             transform.rotation= rotation;
-            
         }
         #endregion
     }
