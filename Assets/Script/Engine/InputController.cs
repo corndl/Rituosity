@@ -30,7 +30,6 @@ namespace Engine
         #region Unity
         void Awake()
         {
-            Cardboard.Create();
         }
         // Use this for initialization
         void Start()

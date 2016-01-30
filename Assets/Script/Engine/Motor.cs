@@ -82,16 +82,18 @@ namespace Engine
         // Update is called once per frame
         void LateUpdate()
         {
-            updatePosition();
+            UpdatePosition();
 
             if(TangageCorrection)
-                correctTangage();
+                CorrectTangage();
         }
         #endregion
 
         #region Private
         [SerializeField]
         private float m_HauteurMax = 3;
+        [SerializeField]
+        private float m_HauteurMin = 0;
         [SerializeField]
         private float m_Speed = 10;
         [SerializeField]
@@ -102,7 +104,7 @@ namespace Engine
         [SerializeField]
         private bool m_IsInternal = false;
 
-        private void correctTangage()
+        private void CorrectTangage()
         {
             float angle = transform.localEulerAngles.z;
 
@@ -110,10 +112,16 @@ namespace Engine
             OffsetDirection(Quaternion.Euler(-m_SpeedRotation * angle * Time.deltaTime * Vector3.forward));
         }
 
-        private void updatePosition()
+        private void UpdatePosition()
         {
             transform.position += (IsInternal?m_SpeedInternal:m_Speed) * transform.forward *Time.deltaTime;
-            if (transform.position.y > m_HauteurMax) transform.position -= Vector3.up * (transform.position.y - m_HauteurMax);
+            float hauteur = Mathf.Clamp(transform.position.y, m_HauteurMin, m_HauteurMax);
+
+            Vector3 positionVector3 = transform.position;
+
+            positionVector3.y = hauteur;
+
+            transform.position = positionVector3;
         }
         private void setDirection(Quaternion rotation)
         {
