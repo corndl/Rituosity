@@ -7,6 +7,7 @@ namespace Engine
 
         #region Properties
 
+        public bool MouseControle = false;
         #endregion
 
         #region Event
@@ -27,6 +28,10 @@ namespace Engine
         #endregion
 
         #region Unity
+        void Awake()
+        {
+            Cardboard.Create();
+        }
         // Use this for initialization
         void Start()
         {
@@ -36,13 +41,29 @@ namespace Engine
         // Update is called once per frame
         void Update()
         {
-            HandleInput();
+            if(MouseControle)
+                HandleInputMouse();
+            else
+                HandleInputCardboard();
         }
+        
         #endregion
 
         #region Private
+        
 
-        void HandleInput()
+        void HandleInputCardboard()
+        {
+            //*/
+            if(Cardboard.SDK.Triggered)
+                Cardboard.SDK.Recenter();
+            //*/
+            var rot = Quaternion.Slerp(Quaternion.identity,Cardboard.SDK.HeadPose.Orientation, Time.deltaTime);
+
+            RotationEvent.Invoke(Cardboard.SDK.HeadPose.Orientation);
+        }
+
+        void HandleInputMouse()
         {
             float mouseX = Input.GetAxis("Mouse X");
             float mouseY = Input.GetAxis("Mouse Y");
