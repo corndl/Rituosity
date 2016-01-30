@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 78b8e0b9615539d4ca4a923aea0e9b14
+guid: cdaf9b02fd688244c987a743ddfb4659
 timeCreated: 1454119909
 licenseType: Free
 ModelImporter:
@@ -9,7 +9,8 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: City_Block2
+    4300000: City_Block1
+    6400000: //RootNode
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -37,7 +38,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -69,7 +70,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
