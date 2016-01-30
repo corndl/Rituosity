@@ -1,23 +1,24 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using System;
 
 namespace Engine
 {
-    [SerializeField]
+    [Serializable]
     public class BoolEvent : UnityEvent<bool> { }
 
-    [SerializeField]
+    [Serializable]
     public class StringEvent : UnityEvent<string> { }
 
-    [SerializeField]
+    [Serializable]
     public class FloatEvent : UnityEvent<float> { }
 
-    [SerializeField]
+    [Serializable]
     public class IntEvent : UnityEvent<int> { }
 
-    [SerializeField]
+    [Serializable]
     public class Vector3Event : UnityEvent<Vector3> { }
 
-    [SerializeField]
+    [Serializable]
     public class QuaternionEvent : UnityEvent<Quaternion> { }
 }
