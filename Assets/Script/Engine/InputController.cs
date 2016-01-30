@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Script.Engine
+namespace Engine
 {
     public class InputController : MonoBehaviour {
 
@@ -9,6 +9,8 @@ namespace Assets.Script.Engine
         #endregion
 
         #region Event
+
+        public QuaternionEvent RotationEvent;
 
         #endregion
 

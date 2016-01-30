@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 
-namespace Assets.Script.Engine
+namespace Engine
 {
     public class TimeManager : MonoBehaviour {
 
         #region Properties
+
 
         #endregion
 
@@ -33,5 +34,7 @@ namespace Assets.Script.Engine
         #region Private
 
         #endregion
+
+
     }
 }
