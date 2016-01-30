@@ -26,15 +26,22 @@ namespace Engine
         #endregion
 
         #region API
-
+        /// <summary>
+        /// Applique la rotation brut au transform
+        /// </summary>
+        /// <param name="rotation">transform.rotation = rotation</param>
         public void SetDirection(Quaternion rotation)
         {
             setDirection(rotation);
         }
 
+        /// <summary>
+        /// Applique tourne le transforme de offsetRotation par rapport à son orientation d'origine
+        /// </summary>
+        /// <param name="offsetRotation">Quaternion représentant une rotation par rapport à la rotation de base.</param>
         public void OffsetDirection(Quaternion offsetRotation)
         {
-            setDirection(transform.rotation * offsetRotation);
+            setDirection(transform.localRotation * offsetRotation);
         }
         #endregion
 
@@ -48,18 +55,28 @@ namespace Engine
         // Update is called once per frame
         void Update()
         {
-
+            updatePosition();
+            float angle = transform.localEulerAngles.z;
+            
+            angle = Mathf.Clamp(angle > 180 ? angle - 360 : angle, -m_SpeedRotation,m_SpeedRotation);
+            OffsetDirection(Quaternion.Euler(-angle *Time.deltaTime* Vector3.forward));
         }
         #endregion
 
         #region Private
         [SerializeField]
         private float m_Speed = 10;
+        [SerializeField]
+        private float m_SpeedRotation = 0.01f;
 
-
-        private void setDirection(Quaternion Rotation)
+        private void updatePosition()
         {
-            transform.rotation = Rotation;
+            transform.position += m_Speed * transform.forward *Time.deltaTime;
+        }
+        private void setDirection(Quaternion rotation)
+        {
+            transform.rotation= rotation;
+            
         }
         #endregion
     }
