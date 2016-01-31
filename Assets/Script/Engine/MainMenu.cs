@@ -8,13 +8,12 @@ namespace Engine
         void Awake()
         {
             Cardboard.Create();
-            Cardboard.SDK.TapIsTrigger = true;
         }
 
         void Update()
         {
-            if (Cardboard.SDK.Triggered)
-            {
+            if((Input.touchSupported && Input.GetTouch(0).tapCount > 0) || Input.GetMouseButton(0) || Cardboard.SDK.Triggered) { 
+                Debug.Log("Trigger Chargement Scene");
                 SceneManager.LoadScene(1);
             }
         }
