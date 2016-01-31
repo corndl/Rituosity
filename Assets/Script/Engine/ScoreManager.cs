@@ -9,6 +9,9 @@ namespace Engine
         [SerializeField]
         int m_TimePerTarget = 15;
 
+        [SerializeField]
+        Motor m_Player = null;
+
         public int Score
         {
             get
@@ -35,12 +38,14 @@ namespace Engine
             Score++;
             StopCoroutine(Timer());
             StartCoroutine(Timer());
+            m_Player.Speed *= 1.1f;
         }
         #endregion
 
         #region Unity
         void Start()
         {
+            m_Player = GameObject.FindObjectOfType<Motor>();
             StartCoroutine(Timer());
         }
         #endregion
