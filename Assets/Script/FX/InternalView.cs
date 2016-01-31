@@ -78,8 +78,6 @@ namespace FX
             InternalSphere.transform.SetParent(null,true);
             m_IsInternal = true;
             InternalSphere.SetActive(true);
-            Camera.main.cullingMask += LayerMask.NameToLayer("Internal");
-            Camera.main.cullingMask += LayerMask.NameToLayer("Internal");
         }
         private void InternalModeExit()
         {
@@ -89,8 +87,6 @@ namespace FX
 
             m_IsInternal = false;
             InternalSphere.SetActive(false);
-
-            Camera.main.cullingMask -= LayerMask.NameToLayer("Internal");
         }
         #endregion
     }
