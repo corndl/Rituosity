@@ -21,8 +21,6 @@ namespace Characters
 
         private void Update()
         {
-
-
             if (Time.time < m_WalkTime)
             {
                 transform.position += transform.right*Time.deltaTime*m_Speed;

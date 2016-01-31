@@ -28,9 +28,21 @@ namespace Procedural
         [SerializeField]
         int m_MobPoolSize = 50;
 
+        [Header("Targets")]
+        [SerializeField]
+        GameObject m_TargetPrefab = null;
+        [SerializeField]
+        int m_NbTargets = 10;
+        [SerializeField]
+        SelectTarget m_SelectTarget = null;
+
         [Header("Player")]
         [SerializeField]
         Motor m_Player = null;
+
+        [Header("Score")]
+        [SerializeField]
+        ScoreManager m_ScoreManager = null;
         #endregion
 
         #region Unity
@@ -40,6 +52,9 @@ namespace Procedural
             playerTile = GetPlayerTile();
             newPlayerTile = GetPlayerTile();
             m_HalfCitySize = (int)Mathf.Ceil(m_GridSize / 2);
+
+            m_ScoreManager = GameObject.FindObjectOfType<ScoreManager>();
+            m_SelectTarget = GameObject.FindObjectOfType<SelectTarget>();
 
             Assert.IsNotNull(m_BlockPool, "Block Pool is null");
             Assert.IsNotNull(m_MobPool, "Mob Pool is null");
@@ -52,6 +67,32 @@ namespace Procedural
         void Update()
         {
             MoveBlocks();
+            GenerateTargets();
+        }
+        #endregion
+
+        #region Handlers
+        void OnTargetDestroyed(Characters.Target target)
+        {
+            m_Targets.Remove(target);
+            Destroy(target.gameObject);
+            m_ScoreManager.KillTarget();
+        }
+
+        void OnTargetTooFar(Characters.Target target)
+        {
+            m_Targets.Remove(target);
+            Destroy(target.gameObject);
+        }
+        #endregion
+
+        #region API
+        public List<Characters.Target> Targets
+        {
+            get
+            {
+                return m_Targets;
+            }
         }
         #endregion
 
@@ -60,6 +101,7 @@ namespace Procedural
         Vector2 playerTile;
         Vector2 newPlayerTile;
         int m_HalfCitySize;
+        List<Characters.Target> m_Targets = new List<Characters.Target>();
 
         #region City Blocks
         /// <summary>
@@ -195,6 +237,68 @@ namespace Procedural
                     mob.transform.position += spawn.SpawnPoints[Random.Range(0, spawn.SpawnPoints.Length)];
                 }
             }
+        }
+
+        void GenerateTargets()
+        {
+            if (m_Targets.Count == m_NbTargets)
+            {
+                return;
+            }
+
+            while (m_Targets.Count < m_NbTargets)
+            {
+                SpawnTarget();
+            }
+        }
+
+        void SpawnTarget()
+        {
+            Vector2 playerTile = GetPlayerTile();
+            Vector2 targetTile = playerTile;
+            int rand = (int)Random.Range(0, 8);
+
+            switch (rand)
+            {
+                case 1:
+                    targetTile = new Vector2(playerTile.x + 1, playerTile.y);
+                    break;
+                case 2:
+                    targetTile = new Vector2(playerTile.x + 1, playerTile.y + 1);
+                    break;
+                case 3:
+                    targetTile = new Vector2(playerTile.x + 1, playerTile.y - 1);
+                    break;
+                case 4:
+                    targetTile = new Vector2(playerTile.x - 1, playerTile.y);
+                    break;
+                case 5:
+                    targetTile = new Vector2(playerTile.x - 1, playerTile.y + 1);
+                    break;
+                case 6:
+                    targetTile = new Vector2(playerTile.x - 1, playerTile.y - 1);
+                    break;
+                case 7:
+                    targetTile = new Vector2(playerTile.x, playerTile.y + 1);
+                    break;
+                case 8:
+                    targetTile = new Vector2(playerTile.x, playerTile.y - 1);
+                    break;
+            }
+
+            GameObject target = Instantiate(m_TargetPrefab);
+            target.transform.SetParent(m_Tiles[targetTile].transform, false);
+
+            Environment.BlockSpawn spawn = m_Tiles[targetTile].GetComponent<Environment.BlockSpawn>();
+            if (spawn != null)
+            {
+                target.transform.position += spawn.SpawnPoints[Random.Range(0, spawn.SpawnPoints.Length)];
+            }
+
+            Characters.Target targ = target.GetComponent<Characters.Target>();
+            m_Targets.Add(targ);
+            targ.onDestroyed.AddListener(OnTargetDestroyed);
+            targ.onTooFar.AddListener(OnTargetTooFar);
         }
         #endregion
 

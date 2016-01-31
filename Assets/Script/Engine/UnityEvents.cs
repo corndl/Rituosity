@@ -21,4 +21,7 @@ namespace Engine
 
     [Serializable]
     public class QuaternionEvent : UnityEvent<Quaternion> { }
+
+    [Serializable]
+    public class TargetEvent : UnityEvent<Characters.Target> { }
 }
