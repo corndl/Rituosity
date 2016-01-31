@@ -105,7 +105,7 @@ ModelImporter:
     4300006: Box004
     4300008: Loft001
     4300010: Box003
-    7400000: DevilWalk
+    7400000: TheDevilWalk
     9500000: //RootNode
     13700000: Box002
   materials:
@@ -119,10 +119,7 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
-      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
-      improve retargeting quality.\n\t'mixamorig:Spine2' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     animationCompression: 3
@@ -133,7 +130,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: DevilWalk
+      name: TheDevilWalk
       takeName: Take 001
       firstFrame: 0
       lastFrame: 52
