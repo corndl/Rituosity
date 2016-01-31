@@ -20,6 +20,7 @@ namespace Engine
             }
             set
             {
+                PlayerPrefs.SetInt("Score", value);
                 m_Score = value;
                 onScoreChanged.Invoke(value.ToString());
             }
@@ -47,6 +48,7 @@ namespace Engine
         {
             m_Player = GameObject.FindObjectOfType<Motor>();
             StartCoroutine(Timer());
+            PlayerPrefs.SetInt("Score", 0);
         }
         #endregion
 

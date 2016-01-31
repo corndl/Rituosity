@@ -5,6 +5,7 @@ namespace Engine
 {
     public class MainMenu : MonoBehaviour
     {
+        #region Unity
         void Awake()
         {
             Cardboard.Create();
@@ -18,5 +19,6 @@ namespace Engine
                 SceneManager.LoadScene(1);
             }
         }
+        #endregion
     }
 }
