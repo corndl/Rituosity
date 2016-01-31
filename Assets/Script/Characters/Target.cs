@@ -25,6 +25,7 @@ namespace Characters
 
         void Update()
         {
+            base.Update();
             if (Vector3.Distance(gameObject.transform.position, m_Player.gameObject.transform.position) > m_MaxDistanceToPlayer)
             {
                 onTooFar.Invoke(this);

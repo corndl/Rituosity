@@ -19,7 +19,7 @@ namespace Characters
             ChangeDirection();
         }
 
-        private void Update()
+        public void Update()
         {
             if (Time.time < m_WalkTime)
             {
