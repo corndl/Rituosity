@@ -41,7 +41,7 @@ namespace Engine
                     selectedTarget = target;
                 }
             }
-            Debug.Log("New target");
+            
             m_Target = selectedTarget;
         }
         #endregion
