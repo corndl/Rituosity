@@ -54,8 +54,11 @@ namespace Engine
         void HandleInputCardboard()
         {
             //*/
-            if(Cardboard.SDK.Triggered)
+            if (Cardboard.SDK.Triggered)
+            {
+                DebugLog("TRIGGERED Mother Fucker","green");
                 Cardboard.SDK.Recenter();
+            }
             //*
             var rot = Quaternion.Slerp(Quaternion.identity,Cardboard.SDK.HeadPose.Orientation, Time.deltaTime);
 
