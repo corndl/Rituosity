@@ -77,6 +77,7 @@ GameObject:
   - 136: {fileID: 13659234}
   - 54: {fileID: 5452720}
   - 95: {fileID: 9539942}
+  - 114: {fileID: 11442674}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1127,6 +1128,31 @@ MonoBehaviour:
   screenParallax: 0
   stereoPaddingX: 0
   stereoPaddingY: 0
+--- !u!114 &11442674
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a40b544b8c3553c40852ae7ad35a9343, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vrModeEnabled: 1
+  distortionCorrection: 2
+  enableAlignmentMarker: 1
+  enableSettingsButton: 1
+  backButtonMode: 1
+  tapIsTrigger: 1
+  neckModelScale: 0
+  autoDriftCorrection: 1
+  electronicDisplayStabilization: 0
+  autoUntiltHead: 1
+  UseUnityRemoteInput: 0
+  screenSize: 0
+  deviceType: 1
+  stereoScreenScale: 1
 --- !u!114 &11442676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1162,6 +1188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InternalSphere: {fileID: 103146}
+  GodMode: 0
   InternalModeEnterEvent:
     m_PersistentCalls:
       m_Calls:
