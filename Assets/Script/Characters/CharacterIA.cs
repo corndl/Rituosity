@@ -6,32 +6,51 @@ namespace Characters
     public class CharacterIA : MonoBehaviour
     {
         #region Properties
-        [SerializeField]
-        float m_Speed;
+
+        [SerializeField] private float m_Speed;
+        [SerializeField] private float m_Duration;
+
         #endregion
 
         #region Unity
-        void Awake()
+
+        private void Awake()
         {
-            StartCoroutine(Move());
+            ChangeDirection();
         }
-        #endregion
 
-        #region Routines
-        IEnumerator Move()
+        private void Update()
         {
-            transform.rotation = Quaternion.Euler(0, Random.Range(0, 359), 0);
-            float duration = Random.Range(0, 5f);
-            float time = Time.time;
 
-            while (Time.time < time + duration)
+
+            if (Time.time < m_WalkTime)
             {
-                transform.position += transform.forward * Time.deltaTime * m_Speed;
-                yield return new WaitForEndOfFrame();
+                transform.position += transform.right*Time.deltaTime*m_Speed;
             }
-
-            StartCoroutine(Move());
+            else
+            {
+                ChangeDirection();
+            }
         }
+
         #endregion
+
+        #region Privates
+
+        private float m_WalkTime;
+
+        private void ChangeDirection()
+        {
+            transform.Rotate(transform.up, Random.Range(-180, 180));
+
+            float duration = Random.Range(0, m_Duration);
+
+            m_WalkTime = Time.time + duration;
+
+
+        }
+
+        #endregion
+
     }
 }

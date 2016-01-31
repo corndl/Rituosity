@@ -273,10 +273,11 @@ public class StereoController : MonoBehaviour {
     /*/
     if (Head == null) {
       var head = gameObject.AddComponent<CardboardHead>();
-      // Don't track position for dynamically added Head components, or else
-      // you may unexpectedly find your camera pinned to the origin.
-      head.trackPosition = false;
-    }
+            // Don't track position for dynamically added Head components, or else
+            // you may unexpectedly find your camera pinned to the origin.
+            head.trackPosition = false;
+            head.trackRotation = false;
+        }
     //*/
 #if !UNITY_5
     if (cam.tag == "MainCamera" && GetComponent<SkyboxMesh>() == null) {

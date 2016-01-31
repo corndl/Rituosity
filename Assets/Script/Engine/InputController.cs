@@ -56,10 +56,11 @@ namespace Engine
             //*/
             if(Cardboard.SDK.Triggered)
                 Cardboard.SDK.Recenter();
-            //*/
+            //*
             var rot = Quaternion.Slerp(Quaternion.identity,Cardboard.SDK.HeadPose.Orientation, Time.deltaTime);
 
             RotationEvent.Invoke(Cardboard.SDK.HeadPose.Orientation);
+            //*/
         }
 
         void HandleInputMouse()
