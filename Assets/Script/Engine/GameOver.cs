@@ -37,7 +37,7 @@ namespace Engine
         IEnumerator LoadLevel()
         {
             yield return new WaitForSeconds(5.5f);
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
         }
         #endregion
     }
