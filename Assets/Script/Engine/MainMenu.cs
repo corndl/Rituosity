@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 namespace Engine
 {
@@ -10,6 +11,8 @@ namespace Engine
         {
             Cardboard.Create();
             Cardboard.SDK.TapIsTrigger = true;
+
+            StartCoroutine(LoadLevel());
         }
 
         void Update()
@@ -18,6 +21,14 @@ namespace Engine
             {
                 SceneManager.LoadScene(1);
             }
+        }
+        #endregion
+
+        #region Routines
+        IEnumerator LoadLevel()
+        {
+            yield return new WaitForSeconds(5.5f);
+            SceneManager.LoadScene(1);
         }
         #endregion
     }
