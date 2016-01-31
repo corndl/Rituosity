@@ -27,7 +27,7 @@ GameObject:
   - 114: {fileID: 11413560}
   m_Layer: 0
   m_Name: CityGenerator
-  m_TagString: Untagged
+  m_TagString: Buildings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -222,11 +222,20 @@ MonoBehaviour:
   m_CityParent: {fileID: 157306}
   m_MobPool: {fileID: 11427152}
   m_MobPrefabs:
+  - {fileID: 101212, guid: 2a7f719197902b3458a44f850ca80e19, type: 2}
   - {fileID: 173846, guid: ea1a6756850e4084296a86eb49c2be7e, type: 2}
   - {fileID: 126972, guid: 163d6dabc630b9444902acda6a91b552, type: 2}
+  - {fileID: 126972, guid: 4c7f3a666d4038249af1145be191938d, type: 2}
+  - {fileID: 126972, guid: 4ac0bec6e4a218247979137f33674180, type: 2}
+  - {fileID: 126972, guid: 076c933079c1f9c42b7cae7c30a0f728, type: 2}
+  - {fileID: 126972, guid: 3af5065e87f555f4fa8259fbc4c5c0a7, type: 2}
+  - {fileID: 126972, guid: a9858c8f52121be4c93bab8b6122b7fa, type: 2}
+  - {fileID: 183688, guid: 5cb5a4b96f4185148bf8a1ababff3b29, type: 2}
+  - {fileID: 173006, guid: e1f094338630c6747868e4efd5532178, type: 2}
+  - {fileID: 109040, guid: fc505cc30dae5974e9d957ab8298e0bb, type: 2}
   m_MobPoolSize: 200
-  m_TargetPrefab: {fileID: 103336, guid: 4757d91f1590c474ea444d5b51b286db, type: 2}
-  m_NbTargets: 10
+  m_TargetPrefab: {fileID: 101212, guid: fb47770e04a0ae94cabf47086a3b8f59, type: 2}
+  m_NbTargets: 100
   m_SelectTarget: {fileID: 0}
   m_Player: {fileID: 0}
   m_ScoreManager: {fileID: 0}
