@@ -23,7 +23,7 @@ namespace Characters
         {
             if (Time.time < m_WalkTime)
             {
-                transform.position += transform.right*Time.deltaTime*m_Speed;
+                MoveForward();
             }
             else
             {
@@ -31,17 +31,48 @@ namespace Characters
             }
         }
 
+
+        void OnTriggerEnter(Collider collider)
+        {
+            Debug.Log("Character collide with"+collider.tag);
+            
+            MoveForward();
+        }
         #endregion
 
         #region Privates
 
         private float m_WalkTime;
 
+        private void Return()
+        {
+            transform.Rotate(transform.up, 180);
+
+            float duration = Random.Range(1, m_Duration);
+
+            m_WalkTime = Time.time + duration;
+        }
+
+        private void MoveForward()
+        {
+            Vector3 offsetPosition = transform.right*Time.deltaTime*m_Speed;
+            Vector3 newRelativePosition = transform.position - transform.parent.position + offsetPosition;
+
+            if (Mathf.Abs(newRelativePosition.x) > 25 || Mathf.Abs(newRelativePosition.y) > 25)
+            {
+                Return();
+            }
+            else
+            {
+                transform.position += offsetPosition;
+            }
+        }
+
         private void ChangeDirection()
         {
             transform.Rotate(transform.up, Random.Range(-180, 180));
 
-            float duration = Random.Range(0, m_Duration);
+            float duration = Random.Range(1, m_Duration);
 
             m_WalkTime = Time.time + duration;
 

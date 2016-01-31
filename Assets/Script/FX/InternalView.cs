@@ -11,6 +11,7 @@ namespace FX
         #region Properties
 
         public GameObject InternalSphere;
+        public bool GodMode = false;
 
         #endregion
 
@@ -41,7 +42,7 @@ namespace FX
                 InternalModeEnterEvent.Invoke();
             }
 
-            if (collider.gameObject.CompareTag("Buildings"))
+            if (!GodMode&&collider.gameObject.CompareTag("Buildings"))
             {
                 UnityEngine.SceneManagement.SceneManager.LoadScene(2);
             }
