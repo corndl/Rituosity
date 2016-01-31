@@ -8,6 +8,7 @@ namespace Engine
         void Awake()
         {
             Cardboard.Create();
+            Cardboard.SDK.TapIsTrigger = true;
         }
 
         void Update()
