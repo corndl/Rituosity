@@ -115,6 +115,7 @@ namespace Procedural
             int posZ;
             Vector2 coordinates;
             GameObject block;
+            GameObject initialBlock = null;
 
             // Instantiate blocks
             m_BlockPool.GeneratePool(m_BlockPrefabs, (int)Mathf.Pow(m_GridSize, 2));
@@ -125,7 +126,11 @@ namespace Procedural
                 for (int j = 0; j < m_GridSize; j++)
                 {
                     block = m_BlockPool.GetObject(m_BlockPrefabs);
-                    
+                    if (i == 0 && j == 0)
+                    {
+                        initialBlock = block;
+                    }        
+
                     // Random block rotation to add diversity to the map
                     randRotation = Random.Range(0, 4);
                     block.transform.rotation = Quaternion.Euler(0, randRotation * 90, 0);
@@ -142,6 +147,17 @@ namespace Procedural
                     block.transform.position = new Vector3(posX * m_BlockSize, 0, posZ * m_BlockSize);
                 }
             }
+
+            GameObject centerBlock = m_Tiles[Vector2.zero];
+            centerBlock.transform.position = initialBlock.transform.position;
+
+            m_Tiles[Vector2.zero] = initialBlock;
+            initialBlock.transform.position = Vector3.zero;
+
+            posX = (int)(- Mathf.Ceil(m_GridSize / 2));
+            posZ = (int)(- Mathf.Ceil(m_GridSize / 2));
+
+            m_Tiles[new Vector2(posX, posZ)] = centerBlock;
         }
 
         /// <summary>

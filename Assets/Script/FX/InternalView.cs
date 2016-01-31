@@ -34,12 +34,16 @@ namespace FX
 
         void OnTriggerEnter(Collider collider)
         {
-            
             Debug.Log("Collision Enter with "+collider.tag);
             if (collider.gameObject.CompareTag("Personnages") && !m_IsInternal)
             {
                 Destroy(collider.gameObject);
                 InternalModeEnterEvent.Invoke();
+            }
+
+            if (collider.gameObject.CompareTag("Buildings"))
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene(2);
             }
         }
 
