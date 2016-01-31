@@ -1890,7 +1890,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155264}
-  m_LocalRotation: {x: 0.67805374, y: 0.70323557, z: -0.17134804, w: 0.1278393}
+  m_LocalRotation: {x: 0.6780537, y: 0.7032355, z: -0.17134802, w: 0.12783928}
   m_LocalPosition: {x: -0.00670927, y: 0.09272277, z: -0.25584227}
   m_LocalScale: {x: 0.9999997, y: 1.3650293, z: 1.0000001}
   m_Children: []
@@ -2121,7 +2121,7 @@ Animator:
   m_GameObject: {fileID: 109040}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 1ca4ae37a7d976b46bec431afd3c38d6, type: 3}
-  m_Controller: {fileID: 9100000, guid: 798d0eb59ace83448a82ff42330e5043, type: 2}
+  m_Controller: {fileID: 9100000, guid: a4287cca41d4d2e409eeddab8d56f47c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -2141,7 +2141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Speed: 3
-  m_Duration: 0
+  m_Duration: 5
 --- !u!136 &13659742
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -2254,7 +2254,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 798d0eb59ace83448a82ff42330e5043, type: 2}
+      objectReference: {fileID: 9100000, guid: a4287cca41d4d2e409eeddab8d56f47c, type: 2}
     - target: {fileID: 0}
       propertyPath: m_CullingMode
       value: 0
@@ -2306,6 +2306,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Duration
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
