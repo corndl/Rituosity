@@ -25,6 +25,7 @@ namespace FX
         /// </summary>
         public UnityEvent InternalModeExitEvent;
 
+        public UnityEvent OnDeath = new UnityEvent();
         #endregion
 
         #region API
@@ -44,6 +45,7 @@ namespace FX
 
             if (!GodMode&&collider.gameObject.CompareTag("Buildings"))
             {
+                OnDeath.Invoke();
                 UnityEngine.SceneManagement.SceneManager.LoadScene(2);
             }
         }
