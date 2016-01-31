@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Man
+  m_Name: Female
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
@@ -39,7 +39,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: fcbd2704e57ed7a42805e506d565a139, type: 2}
+  m_Motion: {fileID: 7400000, guid: 661793a365f6b7b4784fe5a09f108ed6, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
