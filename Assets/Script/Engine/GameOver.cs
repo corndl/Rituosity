@@ -14,7 +14,6 @@ namespace Engine
         void Awake()
         {
             Cardboard.Create();
-            Cardboard.SDK.TapIsTrigger = true;
 
             if (PlayerPrefs.HasKey("Score"))
             {

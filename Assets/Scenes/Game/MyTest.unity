@@ -324,6 +324,10 @@ Prefab:
       propertyPath: m_Arrow
       value: 
       objectReference: {fileID: 96505542}
+    - target: {fileID: 11413560, guid: 707b2cb85afc93f45adb9d29254416af, type: 2}
+      propertyPath: m_NbTargets
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 707b2cb85afc93f45adb9d29254416af, type: 2}
   m_IsPrefabParent: 0
@@ -587,6 +591,30 @@ Prefab:
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1120660869}
+    - target: {fileID: 11405652, guid: 6a00dc731a657304faf7d5d02a13615d, type: 2}
+      propertyPath: MouseControle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11442674, guid: 6a00dc731a657304faf7d5d02a13615d, type: 2}
+      propertyPath: vrModeEnabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11442676, guid: 6a00dc731a657304faf7d5d02a13615d, type: 2}
+      propertyPath: TangageCorrection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 449374, guid: 6a00dc731a657304faf7d5d02a13615d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11420754, guid: 6a00dc731a657304faf7d5d02a13615d, type: 2}
+      propertyPath: directRender
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11420754, guid: 6a00dc731a657304faf7d5d02a13615d, type: 2}
+      propertyPath: keepStereoUpdated
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6a00dc731a657304faf7d5d02a13615d, type: 2}
   m_IsPrefabParent: 0

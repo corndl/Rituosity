@@ -1552,7 +1552,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 183558}
-  m_LocalRotation: {x: 0.67805374, y: 0.70323557, z: -0.17134804, w: 0.1278393}
+  m_LocalRotation: {x: 0.6780537, y: 0.7032355, z: -0.17134802, w: 0.12783928}
   m_LocalPosition: {x: -0.00670927, y: 0.09272277, z: -0.25584227}
   m_LocalScale: {x: 0.9999997, y: 1.3650293, z: 1.0000001}
   m_Children: []
@@ -2151,10 +2151,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 0.25
+  m_Height: 1.8
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!137 &13745070
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -2285,11 +2285,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Radius
-      value: 0.78141916
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Height
-      value: 1.0948037
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Center.y

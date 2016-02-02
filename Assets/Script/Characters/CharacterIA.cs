@@ -34,7 +34,7 @@ namespace Characters
 
         void OnTriggerEnter(Collider collider)
         {
-            Debug.Log("Character collide with"+collider.tag);
+            Debug.Log("<color=red>Character</color> collide with"+collider.tag);
             
             MoveForward();
         }
@@ -46,6 +46,7 @@ namespace Characters
 
         private void Return()
         {
+            Debug.Log("Retournement");
             transform.Rotate(transform.up, 180);
 
             float duration = Random.Range(1, m_Duration);
@@ -58,7 +59,7 @@ namespace Characters
             Vector3 offsetPosition = transform.right*Time.deltaTime*m_Speed;
             Vector3 newRelativePosition = transform.position - transform.parent.position + offsetPosition;
 
-            if (Mathf.Abs(newRelativePosition.x) > 25 || Mathf.Abs(newRelativePosition.y) > 25)
+            if (Mathf.Abs(newRelativePosition.x) > 25 || Mathf.Abs(newRelativePosition.z) > 25)
             {
                 Return();
             }
